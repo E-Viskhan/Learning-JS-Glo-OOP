@@ -10,10 +10,10 @@ const DomElement = function (selector, height, width, bg, fontSize) {
 
     if (this.selector[0] === '.') {
       elem = document.createElement('div');
-      elem.classList.add(selector);
+      elem.classList.add(selector.slice(1));
     } else if (this.selector[0] === '#') {
       elem = document.createElement('p');
-      elem.setAttribute('id', selector);
+      elem.setAttribute('id', selector.slice(1));
     }
 
     elem.style.cssText = `height: ${height};
