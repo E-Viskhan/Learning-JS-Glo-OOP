@@ -1,36 +1,49 @@
-const DomElement = function (selector, height, width, bg, fontSize) {
+const DomElement = function (selector, height, width, bg, position) {
   this.selector = selector;
   this.height = height;
   this.width = width;
   this.bg = bg;
-  this.fontSize = fontSize;
+  this.position = position;
 
   this.createElement = function createElement() {
     let elem;
 
     if (this.selector[0] === '.') {
       elem = document.createElement('div');
-      elem.classList.add(selector);
+      elem.classList.add(selector.slice(1));
     } else if (this.selector[0] === '#') {
       elem = document.createElement('p');
-      elem.setAttribute('id', selector);
+      elem.setAttribute('id', selector.slice(1));
     }
 
     elem.style.cssText = `height: ${height};
       width: ${width};
       background-color: ${bg};
-      font-size: ${fontSize}
+      position: ${position}
     `;
-
-    elem.textContent = 'Далеко - далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.';
 
     document.body.insertAdjacentElement('beforeend', elem);
   };
 
 };
 
-const element = new DomElement('.block', '100px', '300px', 'lightblue', '16px');
-const elementTwo = new DomElement('#two', '70px', '300px', 'lightblue', '16px');
 
-element.createElement();
-elementTwo.createElement();
+document.addEventListener('DOMContentLoaded', () => {
+  const element = new DomElement('.block', '100px', '100px', 'black', 'absolute');
+  element.createElement();
+
+  const block = document.querySelector('.block');
+  block.style.transition = 'all 500ms ease';
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      block.style.left = block.style.left.length ? Number.parseInt(block.style.left) - 10 + 'px' : '-10px';
+    } else if (event.key === 'ArrowRight') {
+      block.style.left = block.style.left.length ? Number.parseInt(block.style.left) + 10 + 'px' : '10px';
+    } else if (event.key === 'ArrowUp') {
+      block.style.top = block.style.top.length ? Number.parseInt(block.style.top) - 10 + 'px' : '-10px';
+    } else if (event.key === 'ArrowDown') {
+      block.style.top = block.style.top.length ? Number.parseInt(block.style.top) + 10 + 'px' : '10px';
+    }
+  });
+});
