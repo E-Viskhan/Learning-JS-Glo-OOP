@@ -1,10 +1,8 @@
-'use strict';
-
-class Employee {
+export class Employee {
   constructor(firstname, lastname, age, isMarried) {
     this.firstname = firstname;
     this.lastname = lastname;
-    this.age = age;
+    this.age = +age;
     this.isMarried = isMarried;
   }
 
@@ -60,22 +58,3 @@ class Employee {
     [this.firstname, this.lastname] = fullname.split(' ');
   }
 }
-
-class Programmer extends Employee {
-  constructor(firstname, lastname, age, isMarried, level, experience, salary) {
-
-  }
-}
-
-class Driver extends Employee {
-
-}
-
-try {
-  const employee = new Employee('vIskhan', 'eLikhanov', 199, true);
-  console.log(employee.fullName);
-} catch (error) {
-  console.error(`Error: ${error.message}`);
-}
-
-console.log('I am working');

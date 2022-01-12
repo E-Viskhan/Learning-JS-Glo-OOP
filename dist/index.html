@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="workers workers--mt20">
+      <div class="container">
+        <div class="workers__wrapper">
+          <h1 class="workers__title">Управление работниками</h1>
+          <form id="workers-form" action="#" class="workers__form workers-form">
+            <div class="workers-form__wrapper">
+              <input
+                type="text"
+                name="lastname"
+                class="workers-form__item workers-form__input"
+                placeholder="Фамилия..."
+                tabindex="1"
+                required
+              />
+              <input
+                type="text"
+                name="firstname"
+                class="workers-form__item workers-form__input"
+                placeholder="Имя..."
+                tabindex="2"
+                required
+              />
+              <input
+                type="number"
+                name="years"
+                step="1"
+                min="18"
+                max="200"
+                class="workers-form__item workers-form__input"
+                placeholder="Возраст..."
+                tabindex="3"
+                required
+              />
+              <div class="workers-form__married">
+                <span class="workers-form__text">В браке?</span>
+                <label>
+                  <input
+                    type="radio"
+                    name="isMarried"
+                    value="true"
+                    tabindex="4"
+                    required
+                  />
+                  Да
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="isMarried"
+                    value="false"
+                    tabindex="5"
+                  />
+                  Нет
+                </label>
+              </div>
+              <!-- /.workers-form__married -->
+              <select
+                class="workers-form__select workers-form__type"
+                id="workers-type"
+                tabindex="6"
+                required
+              >
+                <option value="">Выберите тип работника</option>
+                <option value="Programmer">Программист</option>
+                <option value="Driver">Водитель</option>
+              </select>
+              <select
+                name="level"
+                id="workers-level"
+                class="workers-form__select workers-form__level programmer-info d-none"
+                tabindex="7"
+                required
+                disabled
+              >
+                <option value="">Выберите позицию</option>
+                <option value="Junior">Junior</option>
+                <option value="Middle">Middle</option>
+                <option value="Senior">Senior</option>
+              </select>
+              <input
+                type="number"
+                name="experience"
+                step="1"
+                min="0"
+                max="100"
+                class="workers-form__item workers-form__input programmer-info d-none"
+                placeholder="Количество лет опыта..."
+                tabindex="8"
+                required
+                disabled
+              />
+              <input
+                type="number"
+                name="salary"
+                step="1"
+                min="0"
+                class="workers-form__item workers-form__input programmer-info d-none"
+                placeholder="Введите зарплату..."
+                tabindex="9"
+                required
+                disabled
+              />
+              <input
+                type="number"
+                name="driving-experience"
+                step="1"
+                min="0"
+                class="workers-form__item workers-form__input driver-info d-none"
+                placeholder="Стаж вождения в годах..."
+                tabindex="10"
+                required
+                disabled
+              />
+              <input
+                type="text"
+                name="car"
+                class="workers-form__item workers-form__input driver-info d-none"
+                placeholder="Введите марку и модель авто"
+                tabindex="11"
+                required
+                disabled
+              />
+              <button type="submit">Сохранить</button>
+            </div>
+            <!-- /.workers-form__wrapper -->
+          </form>
+        </div>
+        <!-- /.workers__wrapper -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.workers -->
+  </body>
+</html>
