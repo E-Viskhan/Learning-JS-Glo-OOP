@@ -1,19 +1,18 @@
 export class Employee {
-  constructor(firstname, lastname, age, isMarried) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.age = +age;
-    this.isMarried = isMarried;
+  constructor(id, lastname, firstname, age, isMarried) {
+    this._id = +id;
+    this._lastname = lastname;
+    this._firstname = firstname;
+    this._age = +age;
+    this._isMarried = isMarried;
   }
 
-  get firstname() {
-    return this._firstname;
+  get id() {
+    return this._id;
   }
 
-  set firstname(firstname) {
-    if (firstname.length < 2) { throw new Error('The value being set for firstname is too short'); }
-    else if (firstname.length > 50) { throw new Error('The value being set for firstname is too long'); }
-    this._firstname = firstname[0].toUpperCase() + firstname.slice(1).toLowerCase();
+  set id(id) {
+    this._id = id;
   }
 
   get lastname() {
@@ -24,6 +23,16 @@ export class Employee {
     if (lastname.length < 2) { throw new Error('The value being set for lastname is too short'); }
     else if (lastname.length > 50) { throw new Error('The value being set for lastname is too long'); }
     this._lastname = lastname[0].toUpperCase() + lastname.slice(1).toLowerCase();
+  }
+
+  get firstname() {
+    return this._firstname;
+  }
+
+  set firstname(firstname) {
+    if (firstname.length < 2) { throw new Error('The value being set for firstname is too short'); }
+    else if (firstname.length > 50) { throw new Error('The value being set for firstname is too long'); }
+    this._firstname = firstname[0].toUpperCase() + firstname.slice(1).toLowerCase();
   }
 
   get age() {

@@ -1,11 +1,12 @@
+import { render } from '../modules/render';
 import { Employee } from './Employee';
 
 export class Programmer extends Employee {
-  constructor(firstname, lastname, age, isMarried, level, experience, salary) {
-    super(firstname, lastname, age, isMarried);
-    this.level = level;
-    this.experience = +experience;
-    this.salary = +salary;
+  constructor(id, lastname, firstname, age, isMarried, level, experience, salary) {
+    super(id, lastname, firstname, age, isMarried);
+    this._level = level;
+    this._experience = +experience;
+    this._salary = +salary;
   }
 
   set level(level) {
@@ -30,5 +31,12 @@ export class Programmer extends Employee {
 
   set salary(salary) {
     this._salary = salary;
+  }
+
+  static remove(id) {
+    let programmers = programmersService.getProgrammers();
+    programmers.splice(id, 1);
+    render('programmers', programmers);
+    programmersService.setProgrammers(programmers);
   }
 }

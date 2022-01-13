@@ -1,18 +1,19 @@
 import { Employee } from "./Employee";
+import { render } from "../modules/render";
 
 export class Driver extends Employee {
-  constructor(firstname, lastname, age, isMarried, drivingExperience, workingCar) {
-    super(firstname, lastname, age, isMarried);
-    this.drivingExperience = +drivingExperience;
-    this.workingCar = workingCar;
+  constructor(id, lastname, firstname, age, isMarried, drivingExperience, workingCar) {
+    super(id, lastname, firstname, age, isMarried);
+    this._drivingExperience = +drivingExperience;
+    this._workingCar = workingCar;
   }
 
   set drivingExperience(years) {
-    this._drivingExperinve = years;
+    this._drivingExperience = years;
   }
 
   get drivingExperience() {
-    return this._drivingExperinve;
+    return this._drivingExperience;
   }
 
   set workingCar(car) {
@@ -21,5 +22,12 @@ export class Driver extends Employee {
 
   get workingCar() {
     return this._workingCar;
+  }
+
+  static remove(id) {
+    let drivers = driversService.getDrivers();
+    drivers.splice(id, 1);
+    render('drivers', drivers);
+    driversService.setDrivers(drivers);
   }
 }
